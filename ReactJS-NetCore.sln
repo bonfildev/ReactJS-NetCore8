@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactJS-NetCore.Server", "ReactJS-NetCore.Server\ReactJS-NetCore.Server.csproj", "{64A662AB-2319-4818-9C6B-EBC2132F22EA}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactjs-netcore.client", "reactjs-netcore.client\reactjs-netcore.client.esproj", "{D82A5603-E1A7-499C-A438-EF2C5010FF72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64A662AB-2319-4818-9C6B-EBC2132F22EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A662AB-2319-4818-9C6B-EBC2132F22EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A662AB-2319-4818-9C6B-EBC2132F22EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A662AB-2319-4818-9C6B-EBC2132F22EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D82A5603-E1A7-499C-A438-EF2C5010FF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D82A5603-E1A7-499C-A438-EF2C5010FF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D82A5603-E1A7-499C-A438-EF2C5010FF72}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D82A5603-E1A7-499C-A438-EF2C5010FF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D82A5603-E1A7-499C-A438-EF2C5010FF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D82A5603-E1A7-499C-A438-EF2C5010FF72}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3453E5DD-8BD2-45F4-ABDE-BC8052B97C2A}
+	EndGlobalSection
+EndGlobal
