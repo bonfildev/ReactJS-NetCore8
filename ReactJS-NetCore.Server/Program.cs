@@ -3,7 +3,7 @@ using ReactJS_NetCore.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("Connection");
+var connectionString = builder.Configuration.GetConnectionString("ConnectionAzure");
 //registrar servicio para la conexion
 builder.Services.AddDbContext<PersonDbContext>(options => options.UseSqlServer(connectionString));
 // Add services to the container.

@@ -22,7 +22,7 @@ namespace ReactJS_NetCore.Server.Controllers
             return Ok(lista);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("Guardar")]
         public async  Task<IActionResult> Guardar([FromBody] PersonsTask personsTask){
             await _dbcontext.PersonsTasks.AddAsync(personsTask);

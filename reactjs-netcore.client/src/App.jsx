@@ -32,11 +32,11 @@ function App() {
 
     //8.- Guardar NOTA
     const guardarTarea = async (e) => {
-
+        console.log("el log es " + descripcion);
         e.preventDefault()
 
-        const response = await fetch("api/task/Guardar", {
-            method: "POST",
+        const response = await fetch("api/task/guardar", {
+            method: "PUT",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
@@ -45,7 +45,7 @@ function App() {
 
         if (response.ok) {
             setDescripcion("");
-            await mostrarTareas();
+            await showTasks();
         }
     }
     //10 Cerrar Tarea
@@ -59,7 +59,7 @@ function App() {
         })
 
         if (response.ok)
-            await mostrarTareas();
+            await showTasks();
     }
 
     function buttonCerrar(id, finished) { 
