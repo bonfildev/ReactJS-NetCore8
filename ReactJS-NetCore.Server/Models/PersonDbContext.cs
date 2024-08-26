@@ -115,13 +115,10 @@ public partial class PersonDbContext : DbContext
         {
             entity.HasKey(e => e.Idtask);
 
-            entity.Property(e => e.Idtask)
-                .ValueGeneratedNever()
-                .HasColumnName("IDTask");
+            entity.Property(e => e.Idtask).HasColumnName("IDTask");
             entity.Property(e => e.Description)
                 .HasMaxLength(100)
                 .IsUnicode(false);
-            entity.Property(e => e.Finished).HasDefaultValue(false);
             entity.Property(e => e.RegisterDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");

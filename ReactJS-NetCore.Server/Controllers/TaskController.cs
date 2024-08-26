@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ReactJS_NetCore.Server.Models;
 using System.Threading;
-
+//controlador de tipo API
 namespace ReactJS_NetCore.Server.Controllers
 {
     [Route("api/[controller]")]
@@ -23,15 +23,26 @@ namespace ReactJS_NetCore.Server.Controllers
             return Ok(lista);
         }
 
+        /// <summary>
+        ///si esta funcion tiene un error
+        ///es porque no se estann mandando todos los datos a la bd
+        ///la solucion es mandar todos los datos o dejar defaults
+        ///es importante quitar el nulo al dato tipo bit para que funcione
+        ///y agregar un valor default(0)
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Guardar")]
         public async Task<IActionResult> Guardar([FromBody] PersonsTask request)
         {
-
             await _dbcontext.PersonsTasks.AddAsync(request);
             await _dbcontext.SaveChangesAsync();
+            //var desc = request.Description;
+            //FormattableString str = $"Insert into PersonsTasks (Description) Values('{desc}')";
+            //var rowsModified = _dbcontext.Database.ExecuteSqlAsync(str);
 
-            return StatusCode(StatusCodes.Status200OK, "ok");
+            return Ok("ok");
         }
         [HttpPost]
         [Route("Cerrar/{id:int}")]  
@@ -40,6 +51,17 @@ namespace ReactJS_NetCore.Server.Controllers
             var rowsModified = _dbcontext.Database.ExecuteSql($"UPDATE PersonsTasks SET Finished = 1 WHERE IDTask = {id}");
             //SaveProduct(personsTask, id);
             return Ok("ok"); 
+        }
+        [HttpPost]
+        [Route("Eliminar/{id:int}")]  
+        public async Task<IActionResult> Eliminar(int id)
+        {
+            PersonsTask tarea = _dbcontext.PersonsTasks.Where(t => t.Idtask == id).FirstOrDefault();
+
+            _dbcontext.PersonsTasks.Remove(tarea);
+            await _dbcontext.SaveChangesAsync();
+
+            return Ok("ok");
         }
         
     }

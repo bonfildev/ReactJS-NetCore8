@@ -11,5 +11,5 @@ public partial class PersonsTask
 
     public DateTime? RegisterDate { get; set; }
 
-    public bool? Finished { get; set; }
+    public bool Finished { get; set; }
 }

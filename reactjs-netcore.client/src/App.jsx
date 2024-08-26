@@ -46,7 +46,7 @@ function App() {
 
         if (response.ok) {
             setDescripcion("");
-            await mostrarTareas();
+            await showTasks();
         }
     }
     //10 Cerrar Tarea
@@ -72,6 +72,27 @@ function App() {
                     </button>;
         }
         else "";
+    }
+
+    //11 Eliminar Tarea
+    const eliminarTarea = async (id) => {
+
+        const response = await fetch("api/task/Eliminar/" + id, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+        })
+
+        if (response.ok)
+            await showTasks();
+    }
+    function buttonEliminar(id) { 
+        return <button type="button" className="btn btn-sm btn-outline-danger"
+                    /*11.- Cerrar Tarea*/
+                    onClick={() => eliminarTarea(id)}>
+                    Eliminar
+                </button>;
     }
 
     return (
@@ -105,6 +126,8 @@ function App() {
                                     <h5 className="text-primary">{item.description}</h5>
                                     <div className="d-flex justify-content-between">
                                         <small className="text-muted">{formatDate(item.registerDate)}</small>
+                                        {buttonEliminar(item.idtask)}
+                                        <br></br>
                                         {buttonCerrar(item.idtask, item.finished)}
                                     </div>
                                 </div>
