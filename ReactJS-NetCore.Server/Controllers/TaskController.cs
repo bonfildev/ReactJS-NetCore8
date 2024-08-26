@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReactJS_NetCore.Server.Models;
+using System.Threading;
 
 namespace ReactJS_NetCore.Server.Controllers
 {
@@ -22,12 +23,15 @@ namespace ReactJS_NetCore.Server.Controllers
             return Ok(lista);
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("Guardar")]
-        public async  Task<IActionResult> Guardar([FromBody] PersonsTask personsTask){
-            await _dbcontext.PersonsTasks.AddAsync(personsTask);
+        public async Task<IActionResult> Guardar([FromBody] PersonsTask request)
+        {
+
+            await _dbcontext.PersonsTasks.AddAsync(request);
             await _dbcontext.SaveChangesAsync();
-            return Ok("ok");
+
+            return StatusCode(StatusCodes.Status200OK, "ok");
         }
         [HttpPost]
         [Route("Cerrar/{id:int}")]  

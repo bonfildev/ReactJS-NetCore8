@@ -33,19 +33,20 @@ function App() {
     //8.- Guardar NOTA
     const guardarTarea = async (e) => {
         console.log("el log es " + descripcion);
+
         e.preventDefault()
 
-        const response = await fetch("api/task/guardar", {
-            method: "PUT",
+        const response = await fetch("api/task/Guardar", {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify({ descripcion: descripcion })
+            body: JSON.stringify({ description: descripcion })
         })
 
         if (response.ok) {
             setDescripcion("");
-            await showTasks();
+            await mostrarTareas();
         }
     }
     //10 Cerrar Tarea
